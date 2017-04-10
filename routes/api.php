@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('menus', 'Menus', ['except' => ['create', 'edit']]);
+Route::resource('menus.submenus', 'Submenus', ['except' => ['create', 'edit']]);
+Route::resource('menus.submenus.dishes', 'Dishes', ['except' => ['create', 'edit']]);
+Route::resource('menus.submenus.dishes.variants', 'DishVariants', ['except' => ['create', 'edit']]);
+
+Route::resource('schedules', 'Schedules', ['except' => ['create', 'edit']]);
+Route::resource('gallery', 'Gallery', ['except' => ['create', 'edit']]);
+Route::resource('testimonials', 'Testimonials', ['except' => ['create', 'edit']]);
+
+Route::resource('about', 'About', ['except' => ['create', 'edit']]);
+Route::resource('contact', 'Contact', ['except' => ['create', 'edit']]);
