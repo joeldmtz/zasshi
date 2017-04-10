@@ -141,8 +141,7 @@ class Gallery extends Controller
     public function destroy($id)
     {
         $gallery = SectionGalery::where('status', 1)->find($id);
-        $gallery->fill(['status'=> 0]);
-        $gallery->save();
+        $gallery->update(['status'=> 0]);
         return $gallery;
     }
 }

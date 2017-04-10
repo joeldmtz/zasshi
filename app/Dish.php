@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
-    protected $fillable = ['name', 'description', 'price'];
+    protected $fillable = ['name', 'description', 'price', 'status'];
 
     public function submenu() {
         return $this->belongsTo('App\Submenu');

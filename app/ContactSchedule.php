@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContactSchedule extends Model
 {
-    protected $fillable = ['days', 'hours'];
+    protected $fillable = ['days', 'hours', 'status'];
 }

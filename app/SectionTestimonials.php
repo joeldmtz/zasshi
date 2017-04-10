@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SectionTestimonials extends Model
 {
-    protected $fillable = ['user', 'comment', 'rank'];
+    protected $fillable = ['user', 'comment', 'rank', 'status'];
 }
