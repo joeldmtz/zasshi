@@ -99,7 +99,7 @@ class Schedules extends Controller
     public function destroy($id)
     {
         $testimonial = ContactShedules::where('status', 1)->find($id);
-        $testimonial->update(['status' => 0])
+        $testimonial->update(['status' => 0]);
         return $testimonial;
     }
 }

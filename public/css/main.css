@@ -1,0 +1,8 @@
+.main-background {
+    background-image: url('http://zasshi.mx/public/images/backgrounds/optimized/caterpillar7-min.jpg');
+    background-size: cover;
+}
+
+.current_module {
+    background-color: rgba(11, 11, 11, 0.07);
+}
