@@ -90,7 +90,7 @@
                     })
                     if (newValue == '') {
                         $scope.sections.forEach(function (item) {
-                            if(item._id != $scope.current_section){
+                            if(item._id != $scope.id_section){
                                 $mdExpansionPanel(item._id).collapse();
                             }
                         })
