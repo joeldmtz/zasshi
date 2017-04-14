@@ -8,7 +8,6 @@
                     window.location = '/admin'
                 })
                 .catch(function(error) {
-                    debugger;
                 })
         }
     })

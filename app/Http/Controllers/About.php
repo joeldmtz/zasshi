@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SectionAbout;
-
+use App\User;
+use Hash;
 class About extends Controller
 {
     /**
@@ -25,7 +26,7 @@ class About extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -46,7 +47,16 @@ class About extends Controller
         $about->save();
         return $about;
     }
-
+    
+    public function saveuser(){
+        
+        $user = new User;
+        $user->name = "admin";
+        $user->email = "admin";
+        $user->password = Hash::make("admin");
+        $user->save();
+        return "Guardado";
+    }
     /**
      * Display the specified resource.
      *

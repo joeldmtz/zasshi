@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,7 +14,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get("saveuser","About@saveuser");
 Route::resource('menus', 'Menus', ['except' => ['create', 'edit']]);
 Route::resource('menus.submenus', 'Submenus', ['except' => ['create', 'edit']]);
 Route::resource('menus.submenus.dishes', 'Dishes', ['except' => ['create', 'edit']]);
