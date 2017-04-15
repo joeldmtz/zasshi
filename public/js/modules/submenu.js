@@ -28,7 +28,7 @@
         }
         $scope.disabled = function(item){
             $http.delete('api/menus/submenus/'+item.id,item).then(function(response){
-                    console.log("se deshabilito con exito")
+                    console.log("se deshabilitó con éxito")
             }).catch(function(error){ console.log("Hubo un error")});
             $scope.fillcards();
         }

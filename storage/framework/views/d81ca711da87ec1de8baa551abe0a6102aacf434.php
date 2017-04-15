@@ -38,5 +38,6 @@
  <script src="/js/modules/testimonial.js"></script>
  <script src="/js/modules/menu.js"></script>
  <script src="/js/modules/submenu.js"></script>
+ <script src="/js/modules/contact.js"></script>
 </body>
 </html>

@@ -23,9 +23,12 @@
         <md-card ng-repeat="record in records" class="column_3">
             <md-card-title>
               <md-card-title-text>
-                <span class="md-headline">{{record.user}}</span>
-                <span class="md-subhead">{{record.comment}}</span>
-                <span class="md-subhead">Calificación:{{record.rank}}</span>
+                <span class="md-headline">
+                    <md-icon class="icon-user" style="color:#000;" aria-label="Add"></md-icon>{{record.user}}</span>
+                <span class="md-subhead">
+                    <md-icon class="icon-bubble" style="color:#000;" aria-label="Add"></md-icon>{{record.comment}}</span>
+                <span class="md-subhead">
+                    <md-icon class="icon-star-full" style="color:#000;" aria-label="Add"></md-icon>{{record.rank}}</span>
               </md-card-title-text>
               <!--<md-card-title-media>
                 <div class="md-media-lg card-media"></div>  

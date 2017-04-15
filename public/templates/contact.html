@@ -1,1 +1,46 @@
-Contacto
+<div id="contact" ng-controller="contactController">
+    <md-content class="md-padding">
+        <form name="frmContact" ng-show="show==true" action="" method="POST" onsubmit="return false;" novalidate>
+            <h3 align="center">Agregar Contacto</h3>
+            <md-input-container class="md-block">
+                <label>Dirección</label>
+                <input name="address" ng-model="frmData.address" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Teléfono</label>
+                <input name="telephone" type="number" ng-model="frmData.telephone" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Correo</label>
+                <input name="email" type="email" ng-model="frmData.email" required>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+            <md-button class="md-raised" ng-click="show=false">Cancelar</md-button>
+        </form>
+    </md-content>
+    <md-button class="md-raised" ng-hide="show == true" ng-click="new()">Nuevo Contacto</md-button>
+    <md-divider ng-if="!$last"></md-divider>
+    <md-content class="md-padding"  ng-hide="show == true">
+        <h3 align="center">Lista de contactos</h3>
+        <md-card ng-repeat="record in records">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Contacto</span>
+                <span class="md-subhead">
+                    <md-icon class="icon-home3" style="color:#000;" aria-label="Add"></md-icon>{{record.address}}</span>
+                <span class="md-subhead">
+                    <md-icon class="icon-phone" style="color:#000;" aria-label="Add"></md-icon>{{record.telephone}}</span>
+                <span class="md-subhead">
+                    <md-icon class="icon-mail3" style="color:#000;" aria-label="Add"></md-icon>{{record.email}}</span>
+              </md-card-title-text>
+              <md-card-title-text>
+                <span class="md-headline">Ubicación</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="getData(record)">Editar</md-button>
+              <md-button ng-click="disabled(record)">Desactivar</md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+</div>

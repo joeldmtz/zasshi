@@ -26,3 +26,84 @@
     width: 31.33%;
     display: inline-block;
 }
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?4zldte');
+  src:  url('fonts/icomoon.eot?4zldte#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?4zldte') format('truetype'),
+    url('fonts/icomoon.woff?4zldte') format('woff'),
+    url('fonts/icomoon.svg?4zldte#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home3:before {
+  content: "\e902";
+}
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-camera:before {
+  content: "\e90f";
+}
+.icon-price-tag:before {
+  content: "\e935";
+}
+.icon-coin-dollar:before {
+  content: "\e93b";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-address-book:before {
+  content: "\e944";
+}
+.icon-location:before {
+  content: "\e947";
+}
+.icon-clock:before {
+  content: "\e94e";
+}
+.icon-alarm:before {
+  content: "\e950";
+}
+.icon-bubble:before {
+  content: "\e96b";
+    color: #a2a0a0;
+}
+.icon-user:before {
+  content: "\e971";
+    color: #a50505;
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+.icon-star-full:before {
+  content: "\e9d9";
+    color: #ffed00;
+}
+.icon-mail3:before {
+  content: "\ea85";
+}
+.icon-home3,.icon-mail3,.icon-phone,.icon-location{
+    color: #797979 !important;
+    font-size: 19px;
+}
+.icon-star-full,.icon-user,.icon-bubble{
+    font-size: 19px;   
+}
