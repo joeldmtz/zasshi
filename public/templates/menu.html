@@ -1,6 +1,7 @@
 <div id="sectionMenu" ng-controller="menuController">
     <md-content class="md-padding">
         <form name="frmMenu" ng-show="show == true" action="" method="POST" onsubmit="return false;" novalidate>
+        <h3 align="center">Agregar Menú</h3>
             <md-input-container class="md-block">
                 <label>Menu</label>
                 <input name="name" ng-model="frmData.name" required>
@@ -10,7 +11,9 @@
         </form>
     </md-content>
     <md-button class="md-raised" ng-hide="show == true" ng-click="new()">Nuevo Menú</md-button>
-    <md-content class="md-padding">
+    <md-divider ng-if="!$last"></md-divider>
+    <md-content class="md-padding"  ng-hide="show == true">
+        <h3 align="center">Lista de Menús</h3>
         <md-card ng-repeat="record in records">
             <md-card-title>
               <md-card-title-text>
