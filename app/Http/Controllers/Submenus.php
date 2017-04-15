@@ -15,10 +15,7 @@ class Submenus extends Controller
      */
     public function index($menu_id)
     {
-        $submenus = SectionMenu::where('status', 1)
-            ->find($menu_id)
-            ->submenus;
-
+        $submenus = SectionMenu::where('status', 1)->find($menu_id)->submenus;
         return $submenus;
     }
 

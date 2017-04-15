@@ -34,5 +34,9 @@
  <script src="/vendor/js/md-expansion-panel.min.js"></script>
  <script src="/js/main.js"></script>
  <script src="/js/login.js"></script>
+ <script src="/js/modules/about.js"></script>
+ <script src="/js/modules/testimonial.js"></script>
+ <script src="/js/modules/menu.js"></script>
+ <script src="/js/modules/submenu.js"></script>
 </body>
 </html>

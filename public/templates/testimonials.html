@@ -1,1 +1,40 @@
-Testimonios
+<div id="sectiontestimonials" ng-controller="testimonialController">
+    <form name="frmTestimonial" ng-show="show == true" action="" method="POST" onsubmit="return false;" novalidate>
+        <md-input-container  class="md-block">
+            <label>Usuario</label>
+            <input name="user" ng-model="frmData.user" required>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Comentario</label>
+            <textarea ng-model="frmData.comment" name="comment" columns="1" rows="5"></textarea>
+        </md-input-container>
+        <md-input-container>
+            <label>Calificación</label>
+            <input class ="md-block" type="number" name="rank" ng-model="frmData.rank">
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+        <md-button class="md-raised" ng-click="show = false">Cancelar</md-button>
+    </form>
+    <md-button class="md-raised" ng-hide="show == true" name="nuevo" ng-click="new()">Nuevo Testimonio</md-button>
+    <md-content class="md-padding">
+        <md-card ng-repeat="record in records" class="column_3">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{record.user}}</span>
+                <span class="md-subhead">{{record.comment}}</span>
+                <span class="md-subhead">Calificación:{{record.rank}}</span>
+              </md-card-title-text>
+              <!--<md-card-title-media>
+                <div class="md-media-lg card-media"></div>  
+                <div class="rank" >
+                    <ul><li ng-repeat="star in stars">{{record.rank}}</li></ul>  
+                </div>
+              </md-card-title-media>-->
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="getData(record)">Editar</md-button>
+              <md-button ng-click="disabled(record)">Desactivar</md-button>
+            </md-card-actions>
+      </md-card>
+    </md-content>
+</div>

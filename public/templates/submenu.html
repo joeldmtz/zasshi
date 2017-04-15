@@ -1,1 +1,41 @@
-Submenus
+<div id="submenu" ng-controller="submenuController">
+    <md-content class="md-padding">
+        <form name="frmSubMenu" ng-show="show==true" action="" method="POST" onsubmit="return false;" novalidate>
+            <md-input-container class="md-block">
+                <label>Submenú</label>
+                <input name="name" ng-model="frmData.name" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Menús</label>
+                <md-select name="myModel" ng-model="myModel" required="">
+                    <md-option>Selecciona el menu</md-option>
+                    <md-option ng-repeat="menu in menus" ng-value="menu.id">{{menu.name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+            <md-button class="md-raised" ng-click="show = false">Cancelar</md-button>
+        </form>
+    </md-content>
+    <md-button class="md-raised" ng-hide="show == true" ng-click="new()">Nuevo Submenú</md-button>
+    <md-content class="md-padding">
+        <md-list>
+          <md-list-item class="md-3-line" ng-repeat="menu in menus">
+            <md-toolbar class="md-theme-light">
+                <h2 class="md-toolbar-tools"><span>{{menu.name}}</span></h2>
+            </md-toolbar>            
+            <md-card ng-repeat="record in records" ng-show="fillcards(menu.id)">
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">{{record.name}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                  <md-button ng-click="getData(record)">Editar</md-button>
+                  <md-button ng-click="disabled(record)">Desactivar</md-button>
+                </md-card-actions>
+            </md-card>
+            <md-divider ng-if="!$last"></md-divider>
+          </md-list-item>
+        </md-list>  
+    </md-content>
+</div>

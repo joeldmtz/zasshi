@@ -47,7 +47,7 @@ class About extends Controller
         $about->save();
         return $about;
     }
-    
+    /* //GUARDAR USUARIO ADMIN
     public function saveuser(){
         
         $user = new User;
@@ -56,7 +56,7 @@ class About extends Controller
         $user->password = Hash::make("admin");
         $user->save();
         return "Guardado";
-    }
+    }*/
     /**
      * Display the specified resource.
      *

@@ -1,1 +1,31 @@
-Acerca de
+<div id="sectionabout" ng-controller="aboutController">
+    <md-content class="md-padding">
+        <form name="frmAbout" ng-show="show == true" action="" method="POST" onsubmit="return false;" novalidate>
+            <md-input-container  class="md-block">
+                <label>Título</label>
+                <input name="title" ng-model="frmData.title" required>
+            </md-input-container>
+            <md-input-container  class="md-block">
+                <label>Descripción</label>
+                <textarea ng-model="frmData.description" name="description" columns="1" rows="5"></textarea>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+            <md-button class="md-raised" ng-click="show=false">Cancelar</md-button>
+        </form>
+    </md-content>
+    <md-button class="md-raised" ng-hide="show == true" name="nuevo" ng-click="new()">Nuevo</md-button>
+    <md-content class="md-padding">
+        <md-card ng-repeat="record in records">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{record.title}}</span>
+                    <span class="md-subhead">{{record.description}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="getData(record)">Editar</md-button>
+              <md-button ng-click="disabled(record)">Desactivar</md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+</div>

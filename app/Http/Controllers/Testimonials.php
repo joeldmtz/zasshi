@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SectionTestimonial;
+use App\SectionTestimonials;
 
 class Testimonials extends Controller
 {
@@ -14,7 +14,7 @@ class Testimonials extends Controller
      */
     public function index()
     {
-        $testimonials = SectionTestimonial::where('status', 1)->get();
+        $testimonials = SectionTestimonials::where('status', 1)->get();
         return $testimonials;
     }
 
@@ -42,7 +42,7 @@ class Testimonials extends Controller
             'rank' => 'required|min:1|max:5'
         ]);
 
-        $testimonial = new SectionTestimonial;
+        $testimonial = new SectionTestimonials;
         $testimonial->fill($request->all());
         $testimonial->save();
         return $testimonial;
@@ -56,7 +56,7 @@ class Testimonials extends Controller
      */
     public function show($id)
     {
-        $testimonial = SectionTestimonial::where('status', 1)->find($id);
+        $testimonial = SectionTestimonials::where('status', 1)->find($id);
         return $testimonial;
     }
 
@@ -86,7 +86,7 @@ class Testimonials extends Controller
             'rank' => 'required|min:1|max:5'
         ]);
 
-        $testimonial = SectionTestimonial::where('status', 1)->find($id);
+        $testimonial = SectionTestimonials::where('status', 1)->find($id);
         $testimonial->fill($request->all());
         $testimonial->save();
         return $testimonial;
@@ -100,8 +100,8 @@ class Testimonials extends Controller
      */
     public function destroy($id)
     {
-        $testimonial = SectionTestimonial::where('status', 1)->find($id);
-        $testimonial->update(['status', 0]);
+        $testimonial = SectionTestimonials::where('status', 1)->find($id);
+        $testimonial->update(['status' => 0]);
         return $testimonial;
     }
 }
