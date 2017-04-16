@@ -39,5 +39,7 @@
  <script src="/js/modules/menu.js"></script>
  <script src="/js/modules/submenu.js"></script>
  <script src="/js/modules/contact.js"></script>
+ <script src="/js/modules/dishes.js"></script>
+ <script src="/js/modules/variants.js"></script>
 </body>
 </html>

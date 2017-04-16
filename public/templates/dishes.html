@@ -1,1 +1,111 @@
-Platillos
+<div id="dishes" ng-controller="dishesController">
+    <md-content ng-show="show==true" class="md-padding">
+        <form name="frmDishes" action="" method="POST" onsubmit="" novalidate>
+            <md-input-container class="md-block">
+                <label>Platillo</label>
+                <input name="name" ng-model="frmData.name" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Descripción</label>
+                <textarea name="description" ng-model="frmData.description" columns="1" rows="3" required></textarea>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Precio</label>
+                <input type="number" name="price" ng-model="frmData.price" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Menús</label>
+                <md-select name="myModel" ng-model="frmData.section_menu_id" ng-change="submenus(frmData.section_menu_id)" required>
+                    <md-option>Selecciona el menu</md-option>
+                    <md-option ng-repeat="menu in records" ng-value="menu.id">{{menu.name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Submenús</label>
+                <md-select name="myModel" ng-model="frmData.sub_menu_id" required>
+                    <md-option>Selecciona el menu</md-option>
+                    <md-option ng-repeat="menu in subrecords" ng-value="menu.id">{{menu.name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+            <md-button class="md-raised" ng-click="show = false">Cancelar</md-button>
+        </form>
+    </md-content>
+    <div class="options">
+        <md-button class="md-raised" ng-hide="show==true" ng-click="new()">Nuevo Submenú</md-button>
+        <span><md-button class="md-raised md-primary" ng-hide="show==true" ng-click="all=false;menu=1">Categorías</md-button><md-button class="md-raised md-primary" ng-hide="show==true" ng-click="all=true">Todos</md-button></span>
+    </div>
+    <md-divider ng-if="!$last"></md-divider>
+    <md-content class="md-padding" ng-show="all==false && show==false">
+        <div id="md-menus" ng-show="menu==1">
+            <h3>Menús</h3>
+            <md-grid-list md-cols="1" md-cols-sm="3" md-cols-md="5" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px" >
+                <md-grid-tile  md-rowspan="1" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-repeat="menu in records" ng-click="sm(menu,1)">{{menu.name}}</md-grid-tile>
+            </md-grid-list>
+        </div>
+        <div id="md-submenus"  ng-show="menu==2">
+            <h3><span ng-click="menu=1">Menús</span>/Submenús</h3>
+            <md-grid-list md-cols="1" md-cols-sm="3" md-cols-md="5" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px" >
+                <md-grid-tile  md-rowspan="1" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-repeat="item in subrecords" ng-click="sm(item,2)">{{item.name}}</md-grid-tile>
+            </md-grid-list>
+        </div>
+        <div id="md-dishes"  ng-show="menu==3">
+            <h3><span ng-click="menu=1">Menús</span><span ng-click="menu=2">/Submenús</span>/Platillos</h3>
+            <md-card  ng-repeat="dish in dishes">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-subhead">
+                            <md-icon class="icon-spoon-knife" aria-label="Add"></md-icon>{{dish.name}}</span>
+                        <span class="md-subhead">
+                            <md-icon class="icon-bubble" aria-label="Add"></md-icon>{{dish.description}}</span>
+                        <span class="md-subhead">
+                            <md-icon class="icon-coin-dollar" aria-label="Add"></md-icon>{{dish.price}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                      <md-button ng-click="getData(dish,0)">Editar</md-button>
+                      <md-button ng-click="disabled(dish,0)">Desactivar</md-button>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+        </div>
+    </md-content>
+    <md-content class="md-padding" ng-show="all==true && show==false">
+        <h3>Lista de Platillos</h3>
+        <md-content ng-repeat="menu in records">
+            <md-toolbar class="md-theme-light md-block" >
+                    <h2 class="md-toolbar-tools"><span>{{menu.name}}</span></h2>
+            </md-toolbar>
+            <md-list ng-repeat="submenu in menu.submenus">
+                <md-list-item>
+                    <span>{{submenu.name}}</span>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+                <md-card  ng-repeat="dish in submenu.dishes">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-subhead">
+                                    <md-icon class="icon-spoon-knife" aria-label="Add"></md-icon>{{dish.name}}</span>
+                                <span class="md-subhead">
+                                    <md-icon class="icon-bubble" aria-label="Add"></md-icon>{{dish.description}}</span>
+                                <span class="md-subhead">
+                                    <md-icon class="icon-coin-dollar" aria-label="Add"></md-icon>{{dish.price}}</span>
+                            </md-card-title-text>
+                            <md-card-title-media>
+                              <md-button ng-click="getData(dish,menu.id)">Editar</md-button>
+                              <md-button ng-click="disabled(dish,menu.id)">Desactivar</md-button>
+                            </md-card-title-media>
+                        </md-card-title>
+                </md-card>
+            </md-list>  
+        </md-content>
+    </md-content>
+</div>
+
+                    <!--<span class="icon-spoon-knife"></span><span class="dishes">{{dish.name}}</span>
+                    <span class="icon-bubble"></span><span class="dishes">{{dish.description}}</span>
+                    <span class="icon-coin-dollar"></span><span class="dishes">{{dish.price}}</span>
+                    <div layout="row" layout-align="end center">
+                      <md-button ng-click="getData(submenu)">Editar</md-button>
+                      <md-button ng-click="disabled(submenu)">Desactivar</md-button>
+                    </div>
+                    -->

@@ -21,7 +21,6 @@ class Dishes extends Controller
             ->submenus()
             ->find($submenu_id)
             ->dishes;
-
         return $dishes;
     }
 
