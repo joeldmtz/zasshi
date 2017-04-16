@@ -21,7 +21,6 @@ class Dishes extends Controller
             ->submenus()
             ->find($submenu_id)
             ->dishes;
-
         return $dishes;
     }
 
@@ -107,7 +106,7 @@ class Dishes extends Controller
         $submenu = SectionMenu::where('status', 1)
             ->find($menu_id)
             ->submenus()
-            -find($submenu_id);
+            ->find($submenu_id);
 
         $dish = Dish::find($id);
         $dish->fill($request->all());

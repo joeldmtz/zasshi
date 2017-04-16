@@ -9,7 +9,7 @@ class Dish extends Model
     protected $fillable = ['name', 'description', 'price', 'status'];
 
     public function submenu() {
-        return $this->belongsTo('App\Submenu');
+        return $this->belongsTo('App\Submenu','sub_menu_id','id');
     }
 
     public function variants() {
