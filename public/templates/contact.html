@@ -32,10 +32,16 @@
                     <md-icon class="icon-phone" style="color:#000;" aria-label="Add"></md-icon>{{record.telephone}}</span>
                 <span class="md-subhead">
                     <md-icon class="icon-mail3" style="color:#000;" aria-label="Add"></md-icon>{{record.email}}</span>
+                <span class="md-subhead">
+                    <md-icon class="icon-location" style="color:#000;" aria-label="Add"></md-icon>{{record.lat}},{{record.long}}
+                </span>
               </md-card-title-text>
-              <md-card-title-text>
-                <span class="md-headline">Ubicación</span>
-              </md-card-title-text>
+              <md-card-title-media>
+                    <span class="md-headline">Ubicación</span>
+                    <div class="md-media-lg card-media">
+                        <img src="../images/location.png">
+                    </div>
+              </md-card-title-media>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center">
               <md-button ng-click="getData(record)">Editar</md-button>

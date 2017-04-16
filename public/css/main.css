@@ -19,6 +19,9 @@
 .star-rating .star.filled {
   color: #fd0;
 }
+.card-location{
+    background-image: url('../images/location.png');
+}
 .current_module {
     background-color: rgba(11, 11, 11, 0.07);
 }
