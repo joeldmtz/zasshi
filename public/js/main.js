@@ -30,7 +30,7 @@
 
 
             })
-            .run(function ($rootScope, $route) {
+            .run(function ($rootScope, $route, $location, $mdExpansionPanel) {
                 // Helper para paginado
                 $rootScope.range = function(min, max, step) {
                     step = step || 1;
@@ -54,7 +54,7 @@
                     { _id: '6', name: 'Menus', url: 'menu', icon: 'assignment' },
                     { _id: '7', name: 'Submenus', url: 'submenu', icon: 'list' },
                     { _id: '8', name: 'Platillos', url: 'dishes', icon: 'restaurant_menu' },
-                    { _id: '9', name: 'Variantes', url: 'variants', icon: 'invert_colors' },
+                    //{ _id: '9', name: 'Variantes', url: 'variants', icon: 'invert_colors' },
                 ]}
             ]
 
@@ -67,6 +67,7 @@
                     })
                 }
             });
+
             $route.reload();
         })
         .directive('fileModel', ['$parse', function ($parse) {
@@ -166,5 +167,19 @@
                     }
                 }
             });
+
+            window.setTimeout(function () {
+                $rootScope.sections.some(function (section) {
+                    var module = section.modules.find(function (module) {
+                        return module.url === $location.$$path.slice(1)
+                    })
+
+                    if (module) {
+                        $rootScope.id_module = module._id;
+                        $mdExpansionPanel(section._id).expand();
+                        return true
+                    }
+                })
+            }, 500)
         })
 })()

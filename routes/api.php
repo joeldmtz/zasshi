@@ -15,6 +15,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("saveuser","About@saveuser");
+
+Route::get('menus/full', 'Menus@indexFull');
+Route::get('dishes', 'Dishes@indexAll');
+Route::get('menus/{menu}/dishes', 'Dishes@indexByMenu');
+
+Route::get('menus/all', 'Menus@indexAll');
+Route::get('submenus/all', 'Submenus@indexAll');
+Route::get('submenus/', 'Submenus@indexPaginate');
+
 Route::resource('menus', 'Menus', ['except' => ['create', 'edit']]);
 Route::resource('menus.submenus', 'Submenus', ['except' => ['create', 'edit']]);
 Route::resource('menus.submenus.dishes', 'Dishes', ['except' => ['create', 'edit']]);

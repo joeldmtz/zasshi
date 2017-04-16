@@ -10,19 +10,38 @@
             <md-button class="md-raised" ng-click="show = false">Cancelar</md-button>
         </form>
     </md-content>
-    <md-button class="md-raised" ng-hide="show == true" ng-click="new()">Nuevo Menú</md-button>
+    <div layout="row" layout-align="end center">
+        <div flex>
+            <md-button ng-click="paginate.prev()" class="md-icon-button" ng-show="response.prev_page_url">
+                <md-icon>keyboard_arrow_left</md-icon>
+            </md-button>
+            <md-button ng-click="paginate.to(page)" class="md-icon-button" ng-repeat="page in range(1, response.last_page)" ng-class="{ 'md-accent': page == response.current_page }">
+                {{page}}
+            </md-button>
+            <md-button ng-click="paginate.next()" class="md-icon-button" ng-show="response.next_page_url">
+                <md-icon>keyboard_arrow_right</md-icon>
+            </md-button>
+        </div>
+        <md-button class="md-raised md-accent" ng-hide="show == true" ng-click="new()">
+            <md-icon>add</md-icon>Nuevo menú
+        </md-button>
+    </div>
     <md-divider ng-if="!$last"></md-divider>
     <md-content class="md-padding"  ng-hide="show == true">
         <h3 align="center">Lista de Menús</h3>
-        <md-card ng-repeat="record in records">
+        <md-card ng-repeat="record in records" layout="row">
             <md-card-title>
               <md-card-title-text>
                 <span class="md-headline">{{record.name}}</span>
               </md-card-title-text>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="getData(record)">Editar</md-button>
-              <md-button ng-click="disabled(record)">Desactivar</md-button>
+            <md-card-actions layout="column" layout-align="top center">
+                <md-button ng-click="getData(record)" class="md-icon-button">
+                      <md-icon>mode_edit</md-icon>
+                </md-button>
+                <md-button ng-click="disabled(record)" class="md-icon-button">
+                      <md-icon>delete</md-icon>
+                </md-button>
             </md-card-actions>
       </md-card>
     </md-content>

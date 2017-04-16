@@ -20,7 +20,26 @@ class Dishes extends Controller
             ->find($menu_id)
             ->submenus()
             ->find($submenu_id)
-            ->dishes;
+            ->dishes()
+            ->paginate(5);
+
+        return $dishes;
+    }
+
+    public function indexAll() {
+        $dishes = Dish::with('submenu')
+            ->where('status', 1)
+            ->paginate(5);
+
+        return $dishes;
+    }
+
+    public function indexByMenu ($menu_id) {
+        $dishes = SectionMenu::where('status', 1)
+            ->find($menu_id)
+            ->dishes()
+            ->paginate(5);
+
         return $dishes;
     }
 

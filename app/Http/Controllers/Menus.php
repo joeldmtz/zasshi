@@ -14,7 +14,18 @@ class Menus extends Controller
      */
     public function index()
     {
+        $menus = SectionMenu::with('submenus')->where('status', 1)->paginate(5);
+        return $menus;
+    }
+
+    public function indexFull() {
         $menus = SectionMenu::with('submenus')->where('status', 1)->get();
+        return $menus;
+    }
+
+    public function indexAll()
+    {
+        $menus = SectionMenu::with('submenus_only')->where('status', 1)->get();
         return $menus;
     }
 
@@ -78,7 +89,7 @@ class Menus extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate([
+        $this->validate($request, [
             'name' => 'required|max:45'
         ]);
 

@@ -28,7 +28,7 @@
         $scope.records = [];
         $scope.fillmenus = function(){
             $http.get('api/menus',$scope.data).then(function(response){
-                $scope.records = response.data
+                $scope.records = response.data.data
             }).catch(function(error){ $scope.records = []})
         }
         $scope.fillmenus();
@@ -46,7 +46,7 @@
                 $http.post('api/menus/'+data.section_menu_id+'/submenus/'+data.sub_menu_id+'/dishes',data).then(function(response){
                     console.log("se guardó con éxito")
                 }).catch(function(error){ console.log("No se guardó")});
-            }else{ 
+            }else{
                 $http.put('api/menus/'+data.section_menu_id+'/submenus/'+data.sub_menu_id+'/dishes/'+data.id,data).then(function(response){
                     console.log("se actualizó con éxito")
                 }).catch(function(error){ console.log("No se actualizó")});

@@ -19,6 +19,16 @@ class Submenus extends Controller
         return $submenus;
     }
 
+    public function indexAll() {
+        $submenus = SubMenu::where('status', 1)->get();
+        return $submenus;
+    }
+
+    public function indexPaginate() {
+        $submenus = SubMenu::where('status', 1)->with('menu')->paginate(5);
+        return $submenus;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -95,7 +105,7 @@ class Submenus extends Controller
 
         $submenu = SubMenu::find($id);
         $submenu->fill($request->all());
-        $submenu->menu->associate($menu);
+        $submenu->menu()->associate($menu);
         $submenu->save();
 
         return $submenu;

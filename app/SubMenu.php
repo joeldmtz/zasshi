@@ -9,10 +9,10 @@ class SubMenu extends Model
     protected $fillable = ['name', 'status'];
 
     public function menu() {
-        return $this->belongsTo('App\SectionMenu');
+        return $this->belongsTo('App\SectionMenu', 'section_menu_id', 'id');
     }
 
     public function dishes() {
-        return $this->hasMany('App\Dish')->with('variants')->where('status', 1);
+        return $this->hasMany('App\Dish')->with('submenu')->where('status', 1);
     }
 }
