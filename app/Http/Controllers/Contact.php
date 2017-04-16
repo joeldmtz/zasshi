@@ -14,7 +14,7 @@ class Contact extends Controller
      */
     public function index()
     {
-        $contacts = SectionContact::where('status', 1)->get();
+        $contacts = SectionContact::where('status', 1)->paginate(5);
         return $contacts;
     }
 
@@ -39,14 +39,15 @@ class Contact extends Controller
         $this->validate($request, [
             'address' => 'required',
             'telephone' => 'required',
-            'email' => 'email|nulleable',
+            'email' => 'email|nullable',
             'lat' => 'required',
             'long' => 'required',
-            'icon_mark' => 'nulleable'
+            'icon_mark' => 'nullable'
         ]);
 
         $contact = new SectionContact;
         $contact->fill($request->all());
+        $contact->icon_mark = '';
         $contact->save();
         return $contact;
     }
@@ -86,14 +87,15 @@ class Contact extends Controller
         $this->validate($request, [
             'address' => 'required',
             'telephone' => 'required',
-            'email' => 'email|nulleable',
+            'email' => 'email|nullable',
             'lat' => 'required',
             'long' => 'required',
-            'icon_mark' => 'required'
+            'icon_mark' => 'nullable'
         ]);
 
         $contact = SectionContact::where('status', 1)->find($id);
         $contact->fill($request->all());
+        $contact->icon_mark = '';
         $contact->save();
         return $contact;
     }

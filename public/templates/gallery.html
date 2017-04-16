@@ -1,1 +1,82 @@
-Galeria
+<div id="contact" ng-controller="galleryController">
+    <md-content class="md-padding">
+        <form name="frmGallery" ng-show="show==true" action="" method="POST" onsubmit="return false;" novalidate>
+            <h3 align="center">Agregar elemento a la galeria</h3>
+            <div layout="row">
+                <div flex=70>
+                    <md-input-container class="md-block">
+                        <label>Título</label>
+                        <input type="text" ng-model="frmData.name" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Descripción</label>
+                        <textarea ng-model="frmData.description" required></textarea>
+                    </md-input-container>
+                </div>
+                <div flex=30>
+                    <input id="img_gallery" type="file" file-model="frmData.photo" name="photo" class="ng-hide"/>
+                    <label for="img_gallery" class="md-button md-raised md-accent">
+                        <md-icon>folder</md-icon>Seleccionar imagen
+                    </label>
+                    <img style="width:100%;" ng-src="{{ preview_url }}" ng-show="preview_url">
+                </div>
+            </div>
+            <!-- <div layout="row">
+                <md-input-container>
+                    <label>Hora inicio</label>
+                    <input type="time" ng-model="frmData.start" required>
+                </md-input-container>
+                <md-input-container>
+                    <label>Hora fin</label>
+                    <input type="time" ng-model="frmData.end" required>
+                </md-input-container>
+            </div> -->
+            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+            <md-button class="md-raised" ng-click="show=false">Cancelar</md-button>
+        </form>
+    </md-content>
+    <div layout="row" layout-align="end center">
+        <div flex>
+            <md-button ng-click="paginate.prev()" class="md-icon-button" ng-show="response.prev_page_url">
+                <md-icon>keyboard_arrow_left</md-icon>
+            </md-button>
+            <md-button ng-click="paginate.to(page)" class="md-icon-button" ng-repeat="page in range(1, response.last_page)" ng-class="{ 'md-accent': page == response.current_page }">
+                {{page}}
+            </md-button>
+            <md-button ng-click="paginate.next()" class="md-icon-button" ng-show="response.next_page_url">
+                <md-icon>keyboard_arrow_right</md-icon>
+            </md-button>
+        </div>
+        <md-button class="md-raised md-accent" ng-hide="show == true" ng-click="new()">
+            <md-icon>add</md-icon>Nuevo Contacto
+        </md-button>
+    </div>
+    <md-divider ng-if="!$last"></md-divider>
+    <md-content class="md-padding"  ng-hide="show == true">
+        <h3 align="center">Lista de elementos</h3>
+        <md-card ng-repeat="record in records" layout="row">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Elemento de la galeria</span>
+                <span class="md-subhead">
+                    <md-icon>title</md-icon>{{record.name}}</span>
+                <span class="md-subhead">
+                    <md-icon>reorder</md-icon>{{record.description}}</span>
+              </md-card-title-text>
+              <md-card-title-media>
+                    <div class="md-media-lg card-media">
+                        <img ng-src="/storage/{{ record.url_thumbnail }}">
+                    </div>
+              </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="column" layout-align="top center">
+                <md-button ng-click="getData(record)" class="md-icon-button">
+                      <md-icon>mode_edit</md-icon>
+                </md-button>
+                <md-button ng-click="disabled(record)" class="md-icon-button">
+                      <md-icon>delete</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+</div>

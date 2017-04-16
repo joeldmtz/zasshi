@@ -1,41 +1,26 @@
 (function(){
     var app =  angular.module("MyApp");
-    app.controller('contactController',function($scope, $http, geocoder, alertService){
-        $scope.my_place_id = "ChIJwTcYaEFTn4YRsnI88arEpGI";
+    app.controller('galleryController',function($scope, $http, $fileUpload, alertService){
         $scope.show = false
         $scope.newItem = -1
         $scope.records = []
         $scope.getData = function(item){
             $scope.frmData = angular.copy(item)
+            $scope.preview_url = '/storage/' + item.url_thumbnail
             $scope.newItem = 0;
             $scope.show = true
         }
         $scope.new = function(){
+            $scope.preview_url = null
             $scope.show = true
             $scope.newItem = -1
-            $scope.frmContact.$setPristine()
-        }
-        $scope.fillcards = function(){
-            $http.get('api/contact',$scope.data).then(function(response){
-                $scope.response = response.data
-                $scope.records = response.data.data
-            }).catch(function(error){$scope.records = []})
-        }
-        $scope.disabled = function(item){
-            $http.delete('api/contact/'+item.id,item).then(function(response){
-                alertService.show({
-                    title: 'Elemento borrado',
-                    content: 'El elemento ha sido borrado exitosamente'
-                })
-                $scope.fillcards();
-            }).catch(function(error){
-                $scope.error();
-            });
+            $scope.frmData = {}
+            $scope.frmGallery.$setPristine()
         }
 
         $scope.paginate = {
             to: function (page) {
-                $http.get('api/contact?page=' + page).then(function(response){
+                $http.get('api/gallery?page=' + page).then(function(response){
                     $scope.response = response.data
                     $scope.records = response.data.data
                 }).catch(function(error){$scope.records = []})
@@ -48,6 +33,30 @@
             }
         }
 
+        $scope.fillcards = function(){
+            $http.get('api/gallery',$scope.data).then(function(response){
+                $scope.response = response.data
+                $scope.records = response.data.data
+            }).catch(function(error){$scope.records = []})
+        }
+        $scope.disabled = function(item){
+            $http.delete('api/gallery/'+item.id,item).then(function(response){
+                alertService.show({
+                    title: 'Elemento borrado',
+                    content: 'El elemento ha sido borrado exitosamente'
+                })
+                $scope.fillcards();
+            }).catch(function(error){
+                $scope.error();
+            });
+        }
+
+        $scope.$watch('frmData.photo', function() {
+            if ($scope.frmData) {
+                $scope.preview_url = URL.createObjectURL($scope.frmData.photo)
+            }
+        })
+
         $scope.success = function () {
             alertService.show({
                 title: 'Datos guardados',
@@ -56,7 +65,8 @@
                 $scope.show = false
                 $scope.fillcards()
                 $scope.frmData = {}
-                $scope.frmContact.$setPristine()
+                $scope.preview_url = null
+                $scope.frmGallery.$setPristine()
                 $scope.newItem = -1
             })
         }
@@ -69,25 +79,23 @@
         }
 
         $scope.save = function(){
-            if ($scope.frmContact.$valid) {
-                var data = angular.copy($scope.frmData)
-                data.address = $scope.address_data.formatted_address;
-                data.lat = $scope.address_data.geometry.location.lat();
-                data.long = $scope.address_data.geometry.location.lng();
+            if ($scope.frmGallery.$valid) {
+                var data = $scope.frmData
                 if($scope.newItem == -1){
-                    $http.post('api/contact',data).then(function(response){
-                        $scope.success();
-                    }).catch(function(error){
-                        $scope.error();
-                    })
+                    $fileUpload.uploadFileToUrl('api/gallery',data)
+                        .then(function(response){
+                            $scope.success();
+                        }).catch(function(error){
+                            $scope.error();
+                        })
                 }else{
-                    $http.put('api/contact/'+data.id,data).then(function(response){
-                        $scope.success()
-                    }).catch(function(error){
-                        $scope.error();
-                    })
+                    $fileUpload.updateFileToUrl('api/gallery/'+data.id,data)
+                        .then(function(response){
+                            $scope.success();
+                        }).catch(function(error){
+                            $scope.error();
+                        })
                 }
-
             } else {
                 alertService.show({
                     title: 'Alerta',

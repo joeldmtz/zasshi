@@ -110,5 +110,17 @@
     font-size: 19px;
 }
 .icon-star-full,.icon-user,.icon-bubble{
-    font-size: 19px;   
+    font-size: 19px;
+}
+
+.icon-margin-rigth {
+    margin-right: 1em;
+}
+
+.icon-small-margin-rigth {
+    margin-right: 0.5em;
+}
+
+.icon-button-text {
+    margin-right: 6px;
 }

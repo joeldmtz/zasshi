@@ -1,6 +1,6 @@
 (function () {
     var routeProviderReference;
-    angular.module('MyApp', ['ngMaterial', 'ngRoute', 'ngMessages', 'material.components.expansionPanels'])
+    angular.module('MyApp', ['ngMaterial', 'ngRoute', 'ngMessages', 'material.components.expansionPanels', 'angular-google-maps-geocoder'])
         .config(function ($mdThemingProvider, $routeProvider) {
             routeProviderReference = $routeProvider
 
@@ -29,11 +29,21 @@
                 .dark();
 
 
-        })
-        .run(function ($rootScope, $route) {
-            // Secciones
-            $rootScope.sections = [
-                { _id: '1', name: 'Sitio Web', modules: [
+            })
+            .run(function ($rootScope, $route) {
+                // Helper para paginado
+                $rootScope.range = function(min, max, step) {
+                    step = step || 1;
+                    var input = [];
+                    for (var i = min; i <= max; i += step) {
+                        input.push(i);
+                    }
+                    return input;
+                };
+
+                // Secciones
+                $rootScope.sections = [
+                    { _id: '1', name: 'Sitio Web', modules: [
                     { _id: '1', name: 'Acerca de nosotros', url: 'about', icon: 'person' },
                     { _id: '2', name: 'Galeria', url: 'gallery', icon: 'view_carousel' },
                     { _id: '3', name: 'Testimonios', url: 'testimonials', icon: 'people' },
@@ -58,6 +68,65 @@
                 }
             });
             $route.reload();
+        })
+        .directive('fileModel', ['$parse', function ($parse) {
+            return {
+                restrict: 'A',
+                link: function(scope, element, attrs) {
+                    var model = $parse(attrs.fileModel);
+                    var modelSetter = model.assign;
+
+                    element.bind('change', function(){
+                        scope.$apply(function(){
+                            modelSetter(scope, element[0].files[0]);
+                        });
+                    });
+
+                    scope.$watch(attrs.fileModel, function (newValue, oldValue) {
+                        if (!newValue) {
+                            element[0].value = ''
+                        }
+                    });
+                }
+            };
+        }])
+        .service('alertService', function($mdDialog) {
+            this.show = function (config) {
+                return $mdDialog.show(
+                    $mdDialog.alert()
+                        .title(config.title || 'Alerta')
+                        .textContent(config.content || 'Error')
+                        .ok('Entendido')
+                );
+            }
+        })
+        .service('$fileUpload', function ($http) {
+            this.uploadFileToUrl = function(uploadUrl, params){
+                params = params || {};
+                var fd = new FormData();
+                for (var key in params) {
+                    fd.append(key, params[key])
+                }
+
+                return $http.post(uploadUrl, fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
+            }
+
+            this.updateFileToUrl = function(uploadUrl, params){
+                params = params || {};
+                var fd = new FormData();
+                for (var key in params) {
+                    fd.append(key, params[key])
+                }
+
+                fd.append('_method', 'PUT');
+                return $http.post(uploadUrl, fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
+            }
         })
         .controller('toolbar', function ($scope, $http) {
             $scope.logout = function() {

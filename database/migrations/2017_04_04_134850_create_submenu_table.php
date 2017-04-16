@@ -28,9 +28,9 @@ class CreateSubmenuTable extends Migration
      */
     public function down()
     {
-        Schema::table('submenus', function(Blueprint $table) {
+        Schema::table('sub_menus', function(Blueprint $table) {
            $table->dropForeign('submenu_section_menu_id_foreign');
        });
-        Schema::dropIfExists('submenus');
+        Schema::dropIfExists('sub_menus');
     }
 }

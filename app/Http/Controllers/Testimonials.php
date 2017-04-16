@@ -14,7 +14,7 @@ class Testimonials extends Controller
      */
     public function index()
     {
-        $testimonials = SectionTestimonials::where('status', 1)->get();
+        $testimonials = SectionTestimonials::where('status', 1)->paginate(10);
         return $testimonials;
     }
 

@@ -14,20 +14,24 @@
             <md-button class="md-raised" ng-click="show=false">Cancelar</md-button>
         </form>
     </md-content>
-    <md-button class="md-raised" ng-hide="show == true" name="nuevo" ng-click="new()">Nuevo</md-button>
+
     <md-divider ng-if="!$last"></md-divider>
     <md-content class="md-padding"  ng-hide="show == true">
         <h3 align="center">Lista de Contenido</h3>
-        <md-card ng-repeat="record in records">
+        <md-card ng-repeat="record in records" layout="row">
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">{{record.title}}</span>
                     <span class="md-subhead">{{record.description}}</span>
                 </md-card-title-text>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="getData(record)">Editar</md-button>
-              <md-button ng-click="disabled(record)">Desactivar</md-button>
+            <md-card-actions layout="column" layout-align="top center">
+              <md-button ng-click="getData(record)" class="md-icon-button">
+                    <md-icon>mode_edit</md-icon>
+              </md-button>
+              <md-button ng-click="disabled(record)" class="md-icon-button">
+                    <md-icon>delete</md-icon>
+              </md-button>
             </md-card-actions>
         </md-card>
     </md-content>

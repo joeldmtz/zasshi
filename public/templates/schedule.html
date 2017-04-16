@@ -1,1 +1,66 @@
-Horarios
+<div id="contact" ng-controller="scheduleController">
+    <md-content class="md-padding">
+        <form name="frmSchedule" ng-show="show==true" action="" method="POST" onsubmit="return false;" novalidate>
+            <h3 align="center">Agregar Horario</h3>
+            <md-input-container class="md-block">
+                <label>Días (Descripción)</label>
+                <input type="text" ng-model="frmData.days" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Horas (Descripción)</label>
+                <input type="text" ng-model="frmData.hours" required>
+            </md-input-container>
+            <!-- <div layout="row">
+                <md-input-container>
+                    <label>Hora inicio</label>
+                    <input type="time" ng-model="frmData.start" required>
+                </md-input-container>
+                <md-input-container>
+                    <label>Hora fin</label>
+                    <input type="time" ng-model="frmData.end" required>
+                </md-input-container>
+            </div> -->
+            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
+            <md-button class="md-raised" ng-click="show=false">Cancelar</md-button>
+        </form>
+    </md-content>
+    <div layout="row" layout-align="end center">
+        <div flex>
+            <md-button ng-click="paginate.prev()" class="md-icon-button" ng-show="response.prev_page_url">
+                <md-icon>keyboard_arrow_left</md-icon>
+            </md-button>
+            <md-button ng-click="paginate.to(page)" class="md-icon-button" ng-repeat="page in range(1, response.last_page)" ng-class="{ 'md-accent': page == response.current_page }">
+                {{page}}
+            </md-button>
+            <md-button ng-click="paginate.next()" class="md-icon-button" ng-show="response.next_page_url">
+                <md-icon>keyboard_arrow_right</md-icon>
+            </md-button>
+        </div>
+        <md-button class="md-raised md-accent" ng-hide="show == true" ng-click="new()">
+            <md-icon>add</md-icon>Nuevo Contacto
+        </md-button>
+    </div>
+    <md-divider ng-if="!$last"></md-divider>
+    <md-content class="md-padding"  ng-hide="show == true">
+        <h3 align="center">Lista de horarios</h3>
+        <md-card ng-repeat="record in records" layout="row">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Horario</span>
+                <span class="md-subhead">
+                    <md-icon>event</md-icon>{{record.days}}</span>
+                <span class="md-subhead">
+                    <md-icon>access_time</md-icon>{{record.hours}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="column" layout-align="top center">
+                <md-button ng-click="getData(record)" class="md-icon-button">
+                      <md-icon>mode_edit</md-icon>
+                </md-button>
+                <md-button ng-click="disabled(record)" class="md-icon-button">
+                      <md-icon>delete</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+</div>

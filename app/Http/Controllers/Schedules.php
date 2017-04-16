@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ContactShedules;
+use App\ContactSchedule;
 
 class Schedules extends Controller
 {
@@ -14,7 +14,7 @@ class Schedules extends Controller
      */
     public function index()
     {
-        $schedules = ContactShedules::where('status', 1)->get();
+        $schedules = ContactSchedule::where('status', 1)->paginate(5);
         return $schedules;
     }
 
@@ -41,10 +41,10 @@ class Schedules extends Controller
             'hours' => 'required'
         ]);
 
-        $schedule = new ContactShedules;
+        $schedule = new ContactSchedule;
         $schedule->fill($request->all());
         $schedule->save();
-        return $scheudle;
+        return $schedule;
     }
 
     /**
@@ -55,7 +55,7 @@ class Schedules extends Controller
      */
     public function show($id)
     {
-        $schedule = ContactShedules::where('status', 1)->find($id);
+        $schedule = ContactSchedule::where('status', 1)->find($id);
         return $schedule;
     }
 
@@ -84,7 +84,7 @@ class Schedules extends Controller
             'hours' => 'required'
         ]);
 
-        $schedule = ContactShedules::where('status', 1)->find($id);
+        $schedule = ContactSchedule::where('status', 1)->find($id);
         $schedule->fill($request->all());
         $schedule->save();
         return $schedule;
@@ -98,7 +98,7 @@ class Schedules extends Controller
      */
     public function destroy($id)
     {
-        $testimonial = ContactShedules::where('status', 1)->find($id);
+        $testimonial = ContactSchedule::where('status', 1)->find($id);
         $testimonial->update(['status' => 0]);
         return $testimonial;
     }
