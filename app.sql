@@ -28,9 +28,13 @@ CREATE TABLE `contact_schedules` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `contact_schedules` */
+
+insert  into `contact_schedules`(`id`,`days`,`hours`,`created_at`,`updated_at`,`status`) values 
+(1,'Domingo a Jueves','1:30 PM a 11:00 PM',NULL,NULL,1),
+(2,'Viernes y Sabado','1:30 PM a 12:00 AM',NULL,NULL,1);
 
 /*Table structure for table `dish_ingredients` */
 
@@ -67,9 +71,15 @@ CREATE TABLE `dishes` (
   PRIMARY KEY (`id`),
   KEY `dishes_sub_menu_id_foreign` (`sub_menu_id`),
   CONSTRAINT `dishes_sub_menu_id_foreign` FOREIGN KEY (`sub_menu_id`) REFERENCES `sub_menus` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `dishes` */
+
+insert  into `dishes`(`id`,`description`,`price`,`sub_menu_id`,`created_at`,`updated_at`,`name`,`status`) values 
+(1,'callo de hacha, atún, camarón, kanikama (200gr).',100.00,1,NULL,NULL,'CEVICHE DE MARISCOS',1),
+(2,'calamares rellenos de pasta de cangrejo y bañados en salsa de anguila (según tamaño).',65.00,1,NULL,NULL,'KOIKAS',1),
+(3,'',45.00,2,NULL,NULL,'Queso Chihuahua',1),
+(4,'arroz frito con verduras.',50.00,7,NULL,NULL,'YAKIMESHI',1);
 
 /*Table structure for table `migrations` */
 
@@ -98,11 +108,7 @@ insert  into `migrations`(`id`,`migration`,`batch`,`status`) values
 (10,'2017_04_04_134745_create_dish_ingredient_table',1,1),
 (11,'2017_04_04_134850_create_submenu_table',1,1),
 (12,'2017_04_04_142850_add_key_submenu_table',1,1),
-(13,'2017_04_04_143143_add_foreignkey_dish_table',1,1),
-(14,'2017_04_09_051336_add_name_dish_table',1,1),
-(15,'2017_04_09_211107_add_status_to_tables',1,1),
-(16,'2017_04_09_223820_add_nulleable_email_contact_table',1,1),
-(17,'2017_04_09_224535_change_rank_to_number_testimonials_table',1,1);
+(13,'2017_04_04_143143_add_foreignkey_dish_table',1,1);
 
 /*Table structure for table `password_resets` */
 
@@ -153,9 +159,12 @@ CREATE TABLE `section_contacts` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `section_contacts` */
+
+insert  into `section_contacts`(`id`,`address`,`telephone`,`email`,`lat`,`long`,`icon_mark`,`created_at`,`updated_at`,`status`) values 
+(1,'Av.camáron sabalo 1103 Local 05, Sabalo country, El Encanto, 82100 Mazatlán, SIN','01 669 176 2248','zasshimzt@gmail.com',' 23.25495219','-106.45828363','icon-mark.png',NULL,NULL,1);
 
 /*Table structure for table `section_galeries` */
 
@@ -200,9 +209,18 @@ CREATE TABLE `section_menus` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `section_menus` */
+
+insert  into `section_menus`(`id`,`name`,`created_at`,`updated_at`,`status`) values 
+(1,'ENTRADAS',NULL,NULL,1),
+(2,'PLANCHA',NULL,NULL,1),
+(3,'NATURALES',NULL,NULL,0),
+(4,'EMPANIZADOS',NULL,NULL,0),
+(5,'ESPECIALES',NULL,NULL,0),
+(6,'HORNEADOS Y PREMIUM',NULL,NULL,0),
+(7,'POSTRES Y BEBIDAS',NULL,NULL,0);
 
 /*Table structure for table `section_testimonials` */
 
@@ -217,9 +235,12 @@ CREATE TABLE `section_testimonials` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `section_testimonials` */
+
+insert  into `section_testimonials`(`id`,`user`,`comment`,`rank`,`created_at`,`updated_at`,`status`) values 
+(1,'Ernesto','Muy bueno\r\n',4,NULL,NULL,1);
 
 /*Table structure for table `sub_menus` */
 
@@ -235,9 +256,17 @@ CREATE TABLE `sub_menus` (
   PRIMARY KEY (`id`),
   KEY `sub_menus_section_menu_id_foreign` (`section_menu_id`),
   CONSTRAINT `sub_menus_section_menu_id_foreign` FOREIGN KEY (`section_menu_id`) REFERENCES `section_menus` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `sub_menus` */
+
+insert  into `sub_menus`(`name`,`section_menu_id`,`created_at`,`updated_at`,`id`,`status`) values 
+('ENTRADAS',1,NULL,NULL,1,1),
+('KUSHIAGE',1,NULL,NULL,2,1),
+('SOPAS',1,NULL,NULL,3,1),
+('NIGIRI',1,NULL,NULL,4,1),
+('SASHIMI',1,NULL,NULL,6,1),
+('ARROZ',2,NULL,NULL,7,1);
 
 /*Table structure for table `users` */
 

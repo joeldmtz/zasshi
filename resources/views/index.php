@@ -18,7 +18,22 @@
     <script src="page/js/angular.min.js"></script>
     <script src="page/js/app.js"></script>
     <script src="page/js/lightgallery.min.js" ></script>
-
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat:  23.25495219, lng: -106.45828363},
+                zoom: 17
+            });
+            var image = 'page/images/<?= $section_contact[0]->icon_mark?>';
+            var beachMarker = new google.maps.Marker({
+                position: {lat: <?= $section_contact[0]->lat?>,lng:<?= $section_contact[0]->long?>},
+                map: map,
+                icon: image
+            });
+        }
+        setTimeout(initMap,2000)
+    </script>
 </head>
 <body ng-controller="menuScroll">
 <section id="header" ng-style="{'background-image': 'url(page/images/backgrounds/optimized/'+background+')','background-size': 'cover'}">
@@ -167,7 +182,7 @@
                     </ul>
                 </div>
             </div>
-            <div ng-repeat="subtype in types[selected].subTypes" class="col-md-4 col-subtype">
+            <div ng-repeat="subtype in types[selected].submenus" class="col-md-4 col-subtype">
                 <p class="subtitle">{{subtype.name}}</p>
                 <div ng-repeat="sushi in subtype.dishes" class="row">
                     <div class="row">
