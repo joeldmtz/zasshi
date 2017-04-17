@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,11 +9,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+Route::get('/', 'Index@index');
+Route::get('/menu', 'Menus@menu');
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function() {

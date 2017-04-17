@@ -1,0 +1,147 @@
+[
+    {
+        name:'ENTRADAS',
+        dishes:[
+            {
+                name:'CEVICHE DE MARISCOS',
+                description:'Callo de hacha, atún, camarón, kanikama (200gr)',
+                price:100
+            },
+            {
+                name:'KOIKAS',
+                description:'Calamares rellenos de pasta de cangrejo y bañados en salsa de anguila (según tamaño)',
+                price:65
+            },
+            {
+                name:'CONCHA DE MARISCOS',
+                description:'Spicy de maricos gratinados (200gr) de marisco',
+                price:105
+            },
+            {
+                name:'CAMARONES ESPECIALES 3 PZAS',
+                description:'Camarones capeados (60gr), rellenos de spicy kanikama, envueltos en alga y bañados en salsa de anguila ',
+                price:95
+            },
+            {
+                name:'TOSTADA TUNA 2 PZAS',
+                description:'Laminas de atún fresco (30gr), sobre una hoja de won ton, encima cebolla morada, aguacate y bañadas en salsa especial',
+                price:80
+            },
+            {
+                name:'MANGO HOT',
+                description:'Pollo capeado (100gr), servido sobre una cama de arroz blanco, bañado en salsa de mango',
+                price:80
+            },
+            {
+                name:'CURRICANES',
+                description:'Laminas de atún fresco rellenas de kanikam, pepino y aguacate, sobre un espejo de yuzu y bañados en salsa serranito',
+                price:95
+            },
+            {
+                name:'SUSHILIS 3 PZAS',
+                description:'Chile caribe relleno de tampico o queso philadelphia',
+                price:55
+            },
+            {
+                name:'VERDURAS TEMPURA',
+                description:'Verduras tempura, acompañadas de arroz gohan',
+                price:80
+            },
+            {
+                name:'EDAMAME',
+                description:'Vaina de soya al vapor',
+                price:60
+            },
+        ]
+    },
+    {
+        name:'KUSHIAGE',
+        dishes:[
+            {
+                name:'Queso Chihuahua',
+                price:45
+            },
+            {
+                name:'Plátano',
+                price:45
+            },
+            {
+                name:'Queso philadelphia con plátano ',
+                price:55
+            },
+            {
+                name:'Camarón con philadelphia',
+                price:65
+            },
+        ]
+
+    },
+    {
+        name:'NIGIRI',
+        dishes:[
+            {
+                name:'EBY-CAMARÓN',
+                price:20
+            },
+            {
+                name:'TAKO-PULPO',
+                price:20
+            },
+            {
+                name:'MAGURO-ATÚN',
+                price:20
+            },
+            {
+                name:'MASAGO- HUEVA DE PEZ VOLADOR',
+                price:30
+            },
+            {
+                name:'SAKE-SALMÓN',
+                price:30
+            },
+            {
+                name:'UNAGUI-ANGUILA',
+                price:30
+            },
+            {
+                name:'PESCA DEL DIA',
+                price:35
+            },
+        ]
+    },
+    {
+        name:'SOPAS',
+        dishes:[
+            {
+                name:'MISOSHIRO',
+                description:'Sopa de soya, cebollin, champiñon, fideo y tofu',
+                price:40
+            },
+            {
+                name:'UDON',
+                description:'Pasta udon, verduras de pollo',
+                price:70
+            },
+            {
+                name:'UDON',
+                description:'Pasta udon, verduras de camarón',
+                price:80
+            }
+        ]
+    },
+    {
+        name:'SASHIMI',
+        dishes:[
+            {
+                name:'SASHIMI SERRANITO',
+                description:'120gr de pescado bañado en salsa especial, chile serrano, ajonjolí y un toque de limón',
+                price:110
+            },
+            {
+                name:'SASHIMI CILANTRO',
+                description:'120gr de atún sellado bañado en salsa de la casa y ajonjolí',
+                price:110
+            }
+        ]
+    }
+]

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SubMenu;
 use Illuminate\Http\Request;
 use App\SectionMenu;
 
@@ -109,5 +110,8 @@ class Menus extends Controller
         $menu = SectionMenu::where('status', 1)->find($id);
         $menu->update(['status' => 0]);
         return $menu;
+    }
+
+    public function menu(){
     }
 }

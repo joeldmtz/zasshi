@@ -1,0 +1,842 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,800|Passion+One:400,700|Raleway|Lato:300');
+@font-face {
+    font-family: 'Lithos Pro';
+    src: url(../fonts/LithosPro-Regular.otf);
+}
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url(../fonts/MyriadPro-Regular.otf);
+}
+@font-face {
+    font-family: 'japanese';
+    src: url(../fonts/Japanese.ttf);
+}
+.dish-description{
+    font-size: 15px !important;
+    color: #fff;
+    text-transform: lowercase;
+}
+#map {
+    height: 400px;
+    width: 100%;
+
+}
+.backgroundImageCVR{
+    position:relative;
+    padding:15px;
+}
+.col-subtype{
+    padding:30px;
+}
+a.back-to-top {
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+	background: #e32525 url("https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519941-001_Home-32.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+.background-image{
+    position:absolute;
+    left:-5px;
+    right:0;
+    top:-5px;
+    bottom:-5px;
+    background-image:url('../images/zasshi-place.jpg');
+    background-position: center;
+    background-size:cover;
+    z-index:1;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    margin: -3px 0px;
+}
+.content{
+    position:relative;
+    z-index:2;
+    margin-bottom: 70px;
+
+}
+.parent-testimonials{
+    position: absolute;
+}
+body{
+    background-color: #ffffff;
+    margin: 0;
+
+}
+.sushi-description{
+    text-transform: lowercase;
+}
+#header {
+   /* background: url(../images/seccion1.jpg) no-repeat center;
+    background-size: cover;*/
+}
+.fondo-color{
+    background-color: rgba(0,0,0,0.6);
+}
+#about-us{
+    background: url("../images/food-3.png") no-repeat bottom right;
+    padding-bottom: 23px;
+    padding-top: 30px;
+}
+#about-us .container{
+    width: 95%;
+}
+#about-us .orange-line {
+    margin-bottom: 20px;
+}
+#opening{
+    background: url("../images/fondo-2.png") no-repeat center;
+    background-size: cover;
+}
+#menu{
+    background: url(../images/fondo-3.png) no-repeat bottom center;
+    padding-top: 30px;
+    background-size: cover;
+}
+#menu .container{
+    width: 97%;
+}
+#gallery{
+    background: url(../images/fondo-4.png) no-repeat center;
+    background-size: cover;
+    padding-bottom: 67px;
+}
+.row-gallery{
+    margin-right: 15px !important;
+}
+#gallery .container{
+    width: 96%;
+}
+#chief{
+    background: url(../images/fresas.png) no-repeat top right;
+    padding-bottom: 40px;
+}
+
+#touch{
+    background: url(../images/platos.png) no-repeat top left;
+    padding-bottom: 94px;
+}
+#copyright{
+    background-color: #111111;
+}
+#reservation .container{
+    width: 99%;
+}
+#latest{
+    padding-bottom: 60px;
+}
+#footer{
+    background-color: #363636;
+    padding-bottom: 40px;
+}
+#about-us .button{
+    display: inline-block;
+}
+.main-center {
+    margin-top: 100px;
+}
+.main-logo{
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 45.83px;
+    font-weight: 800;
+    padding-right: 100px;
+}
+.main-menu{
+    margin-top: 15px;
+    margin-left: 50px;
+}
+.main-menu>li>a{
+    padding: 0;
+}
+.main-menu li{
+    padding: 5px 5px;
+    margin-right: 10px;
+}
+.main-menu li a{
+    color: #ffffff;
+    font-family: 'Open Sans';
+    font-size: 14px;
+}
+ul{
+    list-style: none;
+    margin-top: 8px;
+}
+li{
+    display: inline-block;
+}
+
+a{
+
+    color: #404142;
+    text-decoration: none;
+    font-family: Lato;
+}
+a:hover{
+    cursor: pointer;
+}
+.button-menu{
+    border: 1px solid #ffffff;
+    border-radius: 1px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: 30px;
+}
+.nav-white{
+    border-color: #FFFFFF;
+    margin-top: 4px;
+}
+.icon-bar{
+    background-color: #FFFFFF;
+}
+.icon-shopping{
+    color: #ffffff;
+    font-size: 43.83px;
+    margin-top: -11px;
+}
+.navbar{
+    padding-top: 12px;
+}
+.cutlery{
+    color: #ffffff;
+    font-size: 75px;
+    padding-top: 80px;
+}
+.main-text{
+    color: #ffffff;
+    display: block;
+    font-family: 'japanese';
+    font-size: 58.33px;
+    font-weight: bold;
+    padding-bottom: 0px;
+    padding-top: 15px;
+}
+.underline {
+    display: inline-block;
+    width: 395px;
+    height: 1px;
+    background-color: #fff;
+}
+.push-top {
+    margin-top: -20px;
+}
+.text-underlined{
+    border-bottom: 4px solid #ffffff;
+    color: #ffffff;
+    font-family: 'Lithos Pro';
+    font-size: 25px;
+}
+.subtitle{
+    color: #e32525;
+    display: block;
+    font-family: 'Lato';
+    font-size: 40px;
+    padding-bottom: 10px;
+    padding-top: 4px;
+}
+.icon-main{
+    margin-bottom: 100px;
+    padding-bottom: 170px;
+}
+.orange-line{
+    border: 2px solid #e32525;
+    display: inline-block;
+    margin: 25px 0px;
+}
+.title-1{
+    background-color: #ffffff;
+    color: #000;
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 25px;
+    font-weight: 800;
+    margin: 30px -35px;
+}
+.description{
+    font-family: 'Raleway';
+    font-size: 14px;
+    font-weight: lighter;
+    margin-bottom: 52px;
+    text-align: justify;
+    font-weight:500;
+}
+.dishes-images{
+    background: url("../images/food-1.png") no-repeat center center;
+    height: 316px;
+    padding: 71px;
+    width: 333px;
+}
+.fondo-circle-dark{
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 91px;
+    height: 100%;
+    padding-top: 56px;
+}
+p{
+    color: #454242;
+    line-height: 1.5em;
+}
+.button{
+    background-color: #e32525;
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 14px;
+    padding: 20px 25px;
+}
+.opening-fondo2{
+    background: url(../images/chiles.png) no-repeat bottom left;
+}
+.title-2{
+    color: #ffffff;
+    display: block;
+    font-family: "Open Sans";
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 25px;
+}
+#opening .subtitle{
+    margin-top: -10px;
+}
+.marco{
+    background-color: #FFFFFF;
+    height: 185px;
+    margin: 4px;
+    padding: 7px;
+}
+.marco-img1{
+    background: url(../images/luncho-1.jpg) no-repeat center;
+    background-size: cover;
+}
+.marco-img2{
+    background: url(../images/dessert-1.jpg) no-repeat center;
+    background-size: cover;
+}
+.p0{
+    padding: 0;
+}
+.marco i{
+    color: #e32525;
+    display: block;
+    font-size: 30px;
+}
+.marco-white{
+    padding: 7px
+}
+.marco-black{
+    background-color: #000000;
+}
+.marco-black .open-title{
+    color: #e32525;
+}
+.marco-black i{
+    color: #FFFFFF;
+}
+.marco-black .open-hours{
+    color: #FFFFFF;
+}
+.marco .img-border{
+    padding-top: 30px;
+}
+a:focus, a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+.navbar-nav>li>a{
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+.opensans-14{
+    font-family: 'Open Sans';
+    font-size: 14px;
+}
+.b-black{
+    border: 3px solid rgba(0,0,0,0.5) !important;
+}
+.open-title{
+    color: #e32525;
+    display: block;
+    font-family: "Open Sans";
+    font-size: 18px;
+    padding: 8px;
+}
+.open-hours{
+    color: #000000;
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 14px;
+}
+.ending-text{
+    color: #FFFFFF;
+    display: block;
+    font-family: "Open Sans";
+    font-size: 18px;
+}
+.menu-main-image img{
+    height: 270px;
+    width: 100%;
+}
+.open-images{
+    margin-bottom: 30px;
+}
+.open-ending{
+    padding-bottom: 40px;
+}
+.menu-list{
+    padding: 0;
+}
+.dish-name{
+    color: #000000;
+    font-family: 'Lato';
+    font-size: 14px;
+    font-weight: bold;
+}
+.price{
+    font-size: 20px;
+    color: #e32525;
+}
+.menu-main-image{
+    padding-bottom: 50px;
+    padding-left: 25px;
+}
+.menu-image{
+    padding-left: 25px;
+    padding-right: 0;
+    padding-top: 5px;
+}
+.no-bold{
+    float: right;
+    font-weight: normal;
+}
+.end-line{
+    background-color: #363636;
+    display: inline-block;
+    height: 5px;
+    width: 48px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.end-row{
+    padding-bottom: 100px;
+    padding-top: 25px;
+}
+.orange{
+    background-color: #e32525;
+}
+#gallery p{
+    color: #929192;
+    margin-top: 5px;
+}
+#gallery .subtitle{
+    margin-top: -10px;
+}
+.img-gallery{
+    padding: 0;
+}
+.menu-2 a{
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.img-gallery img{
+    height: 240px;
+    width: 100%;
+}
+.item-gallery {
+    transition: border-bottom 0.5s ease;
+}
+.item-gallery:hover{
+    color: #404142;
+    border-bottom: 1px solid #e32525;
+}
+.item-gallery-selected{
+    color: #404142;
+    border-bottom: 1px solid #e32525;
+}
+.div-marco{
+    border: 1px solid #e32525;
+    margin-top: 10px;
+}
+.menu-2{
+    padding-left: 0px;
+}
+.menu-2 li{
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.img-inside{
+    height: 250px;
+    display: block;
+    padding: 10px 18px;
+}
+.reservation-div{
+    margin-bottom: 65px;
+}
+.chief-1{
+    background: url(../images/chief-1.png) no-repeat center;
+}
+.chief-2{
+    background: url(../images/chief-2.png) no-repeat center;
+}
+.chief-3{
+    background: url(../images/chief-3.png) no-repeat center;
+}
+.chief-4{
+    background: url(../images/chief-4.png) no-repeat center;
+}
+.img-border{
+    border: 3px solid rgba(255,255,255,0.5);
+    height: 100%;
+}
+.chief-name{
+    color: #000000;
+    display: block;
+    font-family: 'Raleway';
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.chief-job{
+    color: #e32525;
+    display: block;
+    font-family: 'Raleway';
+    font-size: 14px;
+    font-weight: lighter;
+}
+.social{
+    border: 1px solid #9d9d9d;
+    border-radius: 20px;
+    display: inline-block;
+    height: 39px;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    padding: 10px;
+    width: 39px;
+}
+.social i{
+    color: #5a5352;
+    font-size: 16px;
+}
+.s-selected{
+    border-color: #e32525;
+}
+.s-selected i, .orange-text{
+    color: #e32525;
+}
+#chief .title-1{
+    margin: 30px -78px;
+}
+#chief .orange-line{
+    margin-top: 60px;
+}
+.reservation{
+    background: url(../images/cup-time.png) no-repeat center center;
+    background-size: cover;
+    height: 600px;
+    padding: 30px;
+}
+.div-dark{
+    background-color: rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.6);
+    height: 100%;
+}
+#reservation .title-1{
+    background: none;
+    color: #FFFFFF;
+    font-family: "Myriad Pro";
+    font-size: 30px;
+    font-weight: normal;
+    margin: -8px -58px;
+}
+.half-line-orange{
+    border: 2px solid #e32525;
+    display: inline-block;
+    width: 48px;
+}
+.hlo-top{
+    border-bottom: none;
+    margin-top: 35%;
+    padding-top: 38px;
+}
+.hlo-bottom{
+    border-top: none;
+    padding-bottom: 38px;
+}
+.contact-form{
+    background: url(../images/cup.png) no-repeat center;
+    background-size: cover;
+    margin-top: -47px;
+    padding-bottom: 162px;
+    padding-top: 92px;
+}
+.field{
+    background: none;
+    border: 2px solid #FFFFFF;
+    display: inline-block;
+    font-family: 'Raleway';
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 3px 5px;
+    width: 103%;
+}
+.f1{
+    margin-left: -43px;
+}
+.far-away{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.form-text-area{
+    margin-bottom: 70px;
+}
+#reservation .button{
+    margin-top: 30px;
+}
+.star{
+    color: #e32525;
+    font-size: 16px;
+}
+.orange-circle i{
+    background-color: #e32525;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 25px;
+    padding: 9px 8px 5px;
+}
+#testimonials p{
+    color: #FFFFFF;
+    font-family: 'Raleway';
+    font-size: 14px;
+    font-weight: lighter;
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+.sub-small{
+    font-size: 25px;
+    margin-top: -7px;
+    padding-bottom: 35px;
+}
+.email-div{
+    padding: 0;
+}
+.client{
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Raleway';
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.client-more{
+    color: #e32525;
+    display: block;
+    font-family: 'Raleway';
+    font-size: 14px;
+    font-weight: lighter;
+    padding-bottom: 30px;
+}
+.title-3{
+    color: #000000;
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 30px;
+}
+#touch p{
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+#touch .social i{
+    color: #262525;
+}
+#touch .social{
+    background-color: #e1e1e1;
+    border: none;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.email-field{
+    background-color: #e1e1e1;
+    border: none;
+    display: inline-block;
+    font-family: "Open Sans";
+    font-size: 14px;
+    height: 50px;
+    padding-left: 15px;
+    width: 100%;
+}
+.btn-smaller{
+    display: inline-block;
+    padding: 10px;
+}
+.copyright{
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.send-email{
+    margin-top: 30px;
+}
+.back-gray{
+    background-color: #e1e1e1;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.back-dark-white{
+    background-color: #ebebeb;
+    margin-top: 30px;
+}
+.pashi{
+    padding: 30px;
+}
+.panshi-1{
+    background: url(../images/panshi-1.png) no-repeat center;
+    background-size: cover;
+}
+.pashi-2{
+    background: url(../images/panshi-2.png) no-repeat center;
+    background-size: cover;
+}
+.pashi-3{
+    background: url(../images/panshi-3.png) no-repeat center;
+    background-size: cover;
+}
+.div-dark-small{
+    border: 4px solid rgba(255,255,255,0.6);;
+    padding-bottom: 236px;
+    padding-top: 0px;
+}
+.font-black{
+    color: #000000;
+    margin-left: -15px;
+    margin-top: 8px;
+    padding-bottom: 0px;
+}
+.blog-date{
+    display: block;
+}
+.orange-separator{
+    border: 1px solid #e32525;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 40px;
+}
+#latest p{
+    padding-bottom: 20px;
+}
+.rale-14{
+    font-family: 'Raleway';
+    font-size: 14px;
+}
+.blog{
+    padding-bottom: 60px;
+}
+.blog-izq{
+    padding-left: 30px;
+}
+.footer-title{
+    color: #FFFFFF;
+    display: block;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.opensans-14{
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+.opensans-10{
+    font-family: "Open Sans";
+    font-size: 10px;
+}
+.opensans-12-bold{
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: bold;
+}
+.opensans-25-bold{
+    font-family: "Open Sans";
+    font-size: 25px;
+    font-weight: bold;
+}
+.about-fanshi{
+    color: #FFFFFF;
+    display: block;
+}
+.footer-open-font{
+    color: #cdc4c4;
+}
+#footer hr{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.color-white{
+    color: #FFFFFF;
+}
+.footer-latest{
+    padding-left: 36px;
+}
+.footer-latest p{
+    line-height: normal;
+    margin-bottom: 0px;
+    padding-top: 5px;
+}
+.footer-gallery{
+    margin-bottom: 3px;
+}
+.info{
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Raleway';
+    font-size: 17px;
+    margin-bottom: 16px;
+}
+.info > i{
+    padding-right: 9px;
+}
+.away-30{
+    margin-bottom: 30px;
+}
+.away-16{
+    margin-bottom: 16px;
+}
+.btn-footer{
+    display: inline-block;
+    margin-top: 6px;
+    padding: 5px 10px;
+}
+.footer-gallery img{
+    width: 100%;
+}
+.img-gallery-left{
+    padding-right: 2px;
+}
+.img-gallery-right{
+    padding-left: 2px;
+}
+.menu-image>img{
+    height: 50px;
+    width: 100%;
+}
