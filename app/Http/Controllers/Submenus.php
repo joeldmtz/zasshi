@@ -25,7 +25,7 @@ class Submenus extends Controller
     }
 
     public function indexPaginate() {
-        $submenus = SubMenu::where('status', 1)->with('menu')->paginate(5);
+        $submenus = SubMenu::where('status', 1)->with('menu')->orderBy('section_menu_id', 'ascc')->paginate(5);
         return $submenus;
     }
 

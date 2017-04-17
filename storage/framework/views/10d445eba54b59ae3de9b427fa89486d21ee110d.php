@@ -30,7 +30,7 @@
                         <input type="password" ng-model="user.password" placeholder="Contraseña" required ng-keyup="$event.keyCode == 13 && login()">
                     </md-input-container>
                     <div layout-align="end" layout="row">
-                        <md-button ng-click="login()">Aceptar</md-button>
+                        <md-button ng-click="login()">Entrar</md-button>
                     </div>
                 </form>
             </md-content>

@@ -3,7 +3,7 @@
     <md-toolbar md-scroll-shrink ng-if="true" ng-controller="toolbar">
         <div class="md-toolbar-tools">
             <h3 flex>
-                <img style="width: 150px" src="/images/logo_zasshi.png" alt="Zasshi">
+                <img style="width: 150px; cursor: pointer;" src="/images/logo_zasshi.png" alt="Zasshi" ondrag="return false" ng-click="toIndex()">
             </h3>
             <md-button class="md-icon-button" ng-click="logout()">
                 <md-tooltip>Cerrar sesión</md-tooltip>
@@ -32,13 +32,13 @@
 
                 <md-expansion-panel md-component-id="{{section._id}}" ng-repeat="section in sections" style="margin: 0px;">
                 <md-expansion-panel-collapsed>
-                     <div class="md-title">{{section.name}}</div>
+                     <div class="md-title accent">{{section.name}}</div>
                      <md-expansion-panel-icon ng-click="$panel.collapse()" ></md-expansion-panel-icon>
                 </md-expansion-panel-collapsed>
 
                 <md-expansion-panel-expanded>
                   <md-expansion-panel-header ng-click="$panel.collapse()" >
-                      <div class="md-title">{{section.name}}</div>
+                      <div class="md-title accent">{{section.name}}</div>
                       <md-expansion-panel-icon> </md-expansion-panel-icon>
                   </md-expansion-panel-header>
                   <md-expansion-panel-content flex="100" layout-fill style="padding: 0px!important;">

@@ -17,7 +17,7 @@ class SectionMenu extends Model
     }
 
     public function dishes() {
-        return $this->hasManyThrough('App\Dish', 'App\SubMenu')->with('submenu');
+        return $this->hasManyThrough('App\Dish', 'App\SubMenu')->where('dishes.status', 1)->with('submenu');
     }
 
 }

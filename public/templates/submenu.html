@@ -13,12 +13,19 @@
                     <md-option ng-repeat="menu in records" ng-value="menu.id">{{menu.name}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
-            <md-button class="md-raised" ng-click="show = false">Cancelar</md-button>
+            <div layout="row" layout-align="end center">
+                <md-button class="md-raised md-accent" ng-click="save()">
+                    <md-icon>save</md-icon>Guardar
+                </md-button>
+                <md-button class="md-raised" ng-click="show=false">
+                    <md-icon>close</md-icon>Cancelar
+                </md-button>
+            </div>
         </form>
     </md-content>
-    <div layout="row" layout-align="end center">
+    <div layout="row" layout-align="end center" ng-hide="show">
         <div flex>
+            <span class="md-subhead">Páginas</span>
             <md-button ng-click="paginate.prev()" class="md-icon-button" ng-show="response.prev_page_url">
                 <md-icon>keyboard_arrow_left</md-icon>
             </md-button>
@@ -38,16 +45,21 @@
         <h3 align="center">Lista de Sub Menús</h3>
         <md-content ng-repeat="menu in records">
             <md-toolbar class="md-theme-light md-block" >
-                    <h2 class="md-toolbar-tools"><span>{{menu.name}}</span></h2>
+                <h2 class="md-toolbar-tools">
+                    <md-icon>assignment</md-icon>
+                    <span flex>{{menu.name}}</span>
+                </h2>
             </md-toolbar>
             <md-list>
-              <md-list-item class="md-3-line" ng-repeat="submenu in menu.submenus">
-                <span class="sub-menus">{{submenu.name}}</span>
+              <md-list-item class="md-1-line" ng-repeat="submenu in menu.submenus">
+                <div class="sub-menus">{{submenu.name}}</div>
                 <md-card-actions layout="row" layout-align="top center">
-                    <md-button ng-click="getData(submenu)" class="md-icon-button">
+                    <md-button ng-click="getData(record)" class="md-icon-button">
+                          <md-tooltip md-direction="top">Editar</md-tooltip>
                           <md-icon>mode_edit</md-icon>
                     </md-button>
                     <md-button ng-click="disabled(record)" class="md-icon-button">
+                          <md-tooltip md-direction="top">Eliminar</md-tooltip>
                           <md-icon>delete</md-icon>
                     </md-button>
                 </md-card-actions>

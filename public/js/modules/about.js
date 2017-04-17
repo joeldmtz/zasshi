@@ -10,13 +10,15 @@
         }
         $scope.new = function(){
             $scope.show = true;
-            $scope.newItem = -1;
+            $scope.newItem = -1
+            $scope.frmData = {};
             $scope.frmAbout.$setPristine();
         }
         $scope.records = [];
         $scope.fillcards = function(){
             $http.get('api/about',$scope.data).then(function(response){
-                $scope.records = response.data;
+                $scope.response = response.data
+                $scope.records = response.data.data;
             }).catch(function(error){ $scope.records = []})
         }
         $scope.disabled = function(item){
@@ -52,6 +54,21 @@
         }
 
         $scope.fillcards();
+
+        $scope.paginate = {
+            to: function (page) {
+                $http.get('api/about?page=' + page).then(function(response){
+                    $scope.response = response.data
+                    $scope.records = response.data.data
+                }).catch(function(error){$scope.records = []})
+            },
+            next: function () {
+                this.to($scope.response.current_page + 1)
+            },
+            prev: function () {
+                this.to($scope.response.current_page - 1)
+            }
+        }
 
         $scope.save = function(){
             if ($scope.frmAbout.$valid) {

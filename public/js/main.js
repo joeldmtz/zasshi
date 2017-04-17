@@ -58,6 +58,10 @@
                 ]}
             ]
 
+            routeProviderReference.when('/', {
+                templateUrl: '/templates/index.html'
+            })
+
             $rootScope.sections.forEach(function (section) {
                 if (section.modules) {
                     section.modules.forEach(function (module) {
@@ -129,7 +133,7 @@
                 });
             }
         })
-        .controller('toolbar', function ($scope, $http) {
+        .controller('toolbar', function ($scope, $http, $location) {
             $scope.logout = function() {
                 $http.post('/logout')
                     .then(function (response) {
@@ -138,6 +142,10 @@
                     .catch(function (error) {
 
                     })
+            }
+
+            $scope.toIndex = function () {
+                $location.path('/')
             }
         })
         .controller('sidebar', function ($rootScope, $scope, $location, $mdExpansionPanel) {
@@ -168,18 +176,32 @@
                 }
             });
 
-            window.setTimeout(function () {
-                $rootScope.sections.some(function (section) {
-                    var module = section.modules.find(function (module) {
-                        return module.url === $location.$$path.slice(1)
-                    })
-
-                    if (module) {
-                        $rootScope.id_module = module._id;
+            $scope.$on('$locationChangeSuccess', function (next, current) {
+                if ($location.$$path === '/') {
+                    $rootScope.sections.forEach(function (section) {
                         $mdExpansionPanel(section._id).expand();
-                        return true
-                    }
-                })
+                    })
+                }
+            })
+
+            window.setTimeout(function () {
+                if ($location.$$path !== '/') {
+                    $rootScope.sections.some(function (section) {
+                        var module = section.modules.find(function (module) {
+                            return module.url === $location.$$path.slice(1)
+                        })
+
+                        if (module) {
+                            $rootScope.id_module = module._id;
+                            $mdExpansionPanel(section._id).expand();
+                            return true
+                        }
+                    })
+                } else {
+                    $rootScope.sections.forEach(function (section) {
+                        $mdExpansionPanel(section._id).expand();
+                    })
+                }
             }, 500)
         })
 })()
