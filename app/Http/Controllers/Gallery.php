@@ -52,9 +52,9 @@ class Gallery extends Controller
 
             $thumbnail = 'thumbnail/'.explode('/', $path)[1];
 
-            $background = Image::canvas(300, 300);
+            $background = Image::canvas(360, 240);
             $image = Image::make(file_get_contents($request->photo))
-                ->resize(300, 300, function($c) {
+                ->resize(360, 240, function($c) {
                     $c->aspectRatio();
                     $c->upsize();
                 });

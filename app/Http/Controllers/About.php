@@ -15,7 +15,7 @@ class About extends Controller
      */
     public function index()
     {
-        $abouts = SectionAbout::where('status', 1)->get();
+        $abouts = SectionAbout::where('status', 1)->paginate(5);
         return $abouts;
     }
 
@@ -26,7 +26,7 @@ class About extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -49,7 +49,7 @@ class About extends Controller
     }
     /* //GUARDAR USUARIO ADMIN
     public function saveuser(){
-        
+
         $user = new User;
         $user->name = "admin";
         $user->email = "admin";

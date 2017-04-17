@@ -2,6 +2,11 @@
     background-image: url('http://zasshi.mx/public/images/backgrounds/optimized/caterpillar7-min.jpg');
     background-size: cover;
 }
+
+.secondary-background {
+    background-color: rgba(0,0,0,0.6);
+}
+
 .star-rating {
   margin: 0;
   padding: 0;
@@ -140,7 +145,7 @@ md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
     font-size: 19px;
 }
 .icon-star-full,.icon-user,.icon-bubble,.icon-coin-dollar,.icon-spoon-knife{
-    font-size: 19px;   
+    font-size: 19px;
 }
 
 .icon-margin-rigth {
@@ -153,4 +158,30 @@ md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
 
 .icon-button-text {
     margin-right: 6px;
+}
+
+.big-title {
+    font-size: 6em;
+    color: #e32525;
+}
+
+.accent {
+    color: #d32f2f !important;
+}
+
+.card-decorator {
+    width: 10px;
+    background: #d32f2f;
+    flex-shrink: 0;
+}
+
+.custom-card-media {
+    height: auto !important;
+    padding: 1em 0;
+}
+
+.card-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: justify;
 }

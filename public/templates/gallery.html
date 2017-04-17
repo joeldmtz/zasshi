@@ -31,12 +31,19 @@
                     <input type="time" ng-model="frmData.end" required>
                 </md-input-container>
             </div> -->
-            <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
-            <md-button class="md-raised" ng-click="show=false">Cancelar</md-button>
+            <div layout="row" layout-align="end center">
+                <md-button class="md-raised md-accent" ng-click="save()">
+                    <md-icon>save</md-icon>Guardar
+                </md-button>
+                <md-button class="md-raised" ng-click="show=false">
+                    <md-icon>close</md-icon>Cancelar
+                </md-button>
+            </div>
         </form>
     </md-content>
-    <div layout="row" layout-align="end center">
+    <div layout="row" layout-align="end center" ng-hide="show">
         <div flex>
+            <span class="md-subhead">Páginas</span>
             <md-button ng-click="paginate.prev()" class="md-icon-button" ng-show="response.prev_page_url">
                 <md-icon>keyboard_arrow_left</md-icon>
             </md-button>
@@ -48,32 +55,33 @@
             </md-button>
         </div>
         <md-button class="md-raised md-accent" ng-hide="show == true" ng-click="new()">
-            <md-icon>add</md-icon>Nuevo Contacto
+            <md-icon>add</md-icon>Nuevo elemento
         </md-button>
     </div>
     <md-divider ng-if="!$last"></md-divider>
     <md-content class="md-padding"  ng-hide="show == true">
         <h3 align="center">Lista de elementos</h3>
         <md-card ng-repeat="record in records" layout="row">
+            <div class="card-decorator"></div>
             <md-card-title>
               <md-card-title-text>
-                <span class="md-headline">Elemento de la galeria</span>
-                <span class="md-subhead">
-                    <md-icon>title</md-icon>{{record.name}}</span>
+                <span class="md-headline">{{record.name}}</span>
                 <span class="md-subhead">
                     <md-icon>reorder</md-icon>{{record.description}}</span>
               </md-card-title-text>
-              <md-card-title-media>
-                    <div class="md-media-lg card-media">
+              <md-card-title-media layout="column" layout-align="center center">
+                    <div class="md-media-lg card-media custom-card-media">
                         <img ng-src="/storage/{{ record.url_thumbnail }}">
                     </div>
               </md-card-title-media>
             </md-card-title>
             <md-card-actions layout="column" layout-align="top center">
                 <md-button ng-click="getData(record)" class="md-icon-button">
+                      <md-tooltip md-direction="top">Editar</md-tooltip>
                       <md-icon>mode_edit</md-icon>
                 </md-button>
                 <md-button ng-click="disabled(record)" class="md-icon-button">
+                      <md-tooltip md-direction="top">Eliminar</md-tooltip>
                       <md-icon>delete</md-icon>
                 </md-button>
             </md-card-actions>
